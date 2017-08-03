@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../lib/react.js"></script>
+	<script src="../lib/react-dom.js"></script>
+	<script src="../lib/browser.min.js"></script>
+</head>
+<style type="text/css">
+	.clearfix:before, .clearfix:after{content:"";display:table;}	
+	.clearfix:after{clear:both;} 
+	.clearfix{*zoom:1;}
+
+	.content-wrap {    
+		padding: 15px;
+	    border: 1px solid #cbcbcb;
+	    border-radius: 3px;
+	    float: left;
+	}
+
+	.avatar-link {
+		float: left;
+		margin-right: 15px;
+	}
+	.top {
+		clear: both;
+		content: ''
+	}
+	.main-con {
+		float: left;
+	}
+	.describe {
+		width: 300px;
+	}
+	.main-con a {
+		color: #259;
+	}
+
+</style>
+<body>
+	<div id="app"></div>
+	<script type="text/babel">
+		function Component(props) {
+			let data = props.content;
+			return (
+				<div className="content-wrap">
+					<div className="top clearfix">
+						<a className="avatar-link" href={data.url}>
+							<img src={data.imgUrl} />
+						</a>
+						<div className="main-con">
+							<a href={data.url}>{data.title}</a>
+							<p className="describe">{data.describe}</p>
+						</div>
+					</div>
+				</div>
+			);
+		}
+
+		const cell = {
+			url: 'https://www.zhihu.com/topic/20025477',
+			imgUrl: 'http://img.mukewang.com/55fd033c00018a0606000338-240-135.jpg',
+			title: 'React Native',
+			describe: 'React Native使你能够在Javascript和React 的基础上获得完全一致的开发体验，构建世界一流的原…'
+		};
+
+		ReactDOM.render(
+			<Component content={cell} />,
+			document.getElementById('app')
+		);
+
+	</script>
+</body>
+</html>
