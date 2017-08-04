@@ -41,6 +41,17 @@
 <body>
 	<div id="app"></div>
 	<script type="text/babel">
+		function MainCon(props) {
+			let data = props.content;
+			return (
+				<div className="main-con">
+					<a href={data.url}>{data.title}</a>
+					<p className="describe">{data.describe}</p>
+				</div>				
+			);
+		}
+
+
 		function Component(props) {
 			let data = props.content;
 			return (
@@ -49,10 +60,7 @@
 						<a className="avatar-link" href={data.url}>
 							<img src={data.imgUrl} />
 						</a>
-						<div className="main-con">
-							<a href={data.url}>{data.title}</a>
-							<p className="describe">{data.describe}</p>
-						</div>
+						<MainCon content={data} />
 					</div>
 				</div>
 			);
