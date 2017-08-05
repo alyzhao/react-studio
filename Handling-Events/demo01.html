@@ -13,43 +13,32 @@
 <body>
 	<div id="app"></div>
 	<script type="text/babel">
-		class Clock extends React.Component {
+		class Toggle extends React.Component {
 			constructor(props) {
 				super(props);
-				this.state = {date: new Date()};
+				this.state = {isToggle: true};
+				this.handleClick = this.handleClick.bind(this);
 			}
 
-			componentDidMount() {
-				// 挂载时执行
-				this.timerID = setInterval(
-					() => this.tick(),
-					1000
-			    );
-			}
-
-			componentWillUnmount() {
-				// 卸载时执行
-				clearInterval(this.timerID);
-			}
-
-			tick() {
-				this.setState({
-					date: new Date()
-				});
+			handleClick() {
+				console.log(this);
+				this.setState(prevState => ({
+					isToggleOn: !prevState.isToggleOn
+				}));
 			}
 
 			render() {
 				return (
-					<div>
-						<h1>Hello, React!</h1>
-						<h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-					</div>
-				)
+					<button onClick={this.handleClick}>
+						{this.state.isToggleOn ? 'ON' : 'OFF'}						
+					</button>
+				);
 			}
 		}
 
+
 		ReactDOM.render(
-			<Clock />,
+			<Toggle />,
 			document.getElementById('app')
 		);
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../lib/react.js"></script>
+	<script src="../lib/react-dom.js"></script>
+	<script src="../lib/browser.min.js"></script>
+</head>
+<style type="text/css">
+
+</style>
+<body>
+	<div id="app"></div>
+	<script type="text/babel">
+		function UserGreeting(props) {
+			return <h1>Welcome back!</h1>;
+		}
+
+		function GuestGreeting(props) {
+			return <h1>Please sign up.</h1>;
+		}
+
+		function Greeting(props) {
+			const isLogin = props.isLogin;
+			if (isLogin) {
+				return <UserGreeting />;
+			}
+			return <GuestGreeting />;
+		}
+
+
+		ReactDOM.render(
+			<Greeting isLogin={true} />,
+			document.getElementById('app')
+		);
+
+	</script>
+</body>
+</html>

@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let fromFile = './State-Lifecycle/demo01.html';
 
-let toFileHead = './Handling-Events/';
+let toFileHead = './Conditional-Rendering/';
 
 let fileName = 'demo01.html';
 
