@@ -1,10 +1,10 @@
 const fs = require('fs');
 
-let fromFile = './State-Lifecycle/demo01.html';
+let fromFile = './base.html';
 
 let toFileHead = './Conditional-Rendering/';
 
-let fileName = 'demo01.html';
+let fileName = 'demo03.html';
 
 let newFile = toFileHead + fileName;
 

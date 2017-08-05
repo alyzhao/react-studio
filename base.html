@@ -13,24 +13,9 @@
 <body>
 	<div id="app"></div>
 	<script type="text/babel">
-		function UserGreeting(props) {
-			return <h1>Welcome back!</h1>;
-		}
-
-		function GuestGreeting(props) {
-			return <h1>Please sign up.</h1>;
-		}
-
-		function Greeting(props) {
-			const isLogin = props.isLogin;
-			if (isLogin) {
-				return <UserGreeting />;
-			}
-			return <GuestGreeting />;
-		}
 
 		ReactDOM.render(
-			<Greeting isLogin={false} />,
+			<Clock />,
 			document.getElementById('app')
 		);
 
