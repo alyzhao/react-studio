@@ -2,7 +2,7 @@
 ## learn react 
 
 ## State-Lifecycle
-	1. this.state可能是异步更新, 所以要依靠上一次的值计算下一次的值必须在setState中传递一个回调函数, 该函数将接收先前的状态作为第一个参数, 将需要更新的值作为第二个参数：
+	(1). this.state可能是异步更新, 所以要依靠上一次的值计算下一次的值必须在setState中传递一个回调函数, 该函数将接收先前的状态作为第一个参数, 将需要更新的值作为第二个参数：
 	```
 	this.setState((prevState, props) => ({
 		counter: prevState.counter + props.increment
