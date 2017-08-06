@@ -14,7 +14,7 @@
 
 2. 类的方法默认是不会绑定 this , 解决方法
 	(1). 在constructor中bind(this)
-	(2). 使用 property initializer syntax,,
+	(2). 使用 property initializer syntax,
 	```
 	handleClick = () => {
 		console.log('this is:', this);
