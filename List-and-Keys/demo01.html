@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../lib/react.js"></script>
+	<script src="../lib/react-dom.js"></script>
+	<script src="../lib/browser.min.js"></script>
+</head>
+<style type="text/css">
+
+</style>
+<body>
+	<div id="app"></div>
+	<script type="text/babel">
+		// const listItems = number.map(number => 
+		// 	<li>{number}</li>
+		// )
+
+		function NumberList(props) {
+			const number = props.number;
+			const listItems = number.map(number => 
+				<li key={number.toString()}>{number}</li>
+			);
+			return (
+				<ul>{listItems}</ul>
+			)
+		}
+
+		const number = [1, 2, 3, 4, 5];
+		ReactDOM.render(
+			<NumberList number={number}/>,
+			document.getElementById('app')
+		);
+
+	</script>
+</body>
+</html>

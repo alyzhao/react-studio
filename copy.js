@@ -2,9 +2,9 @@ const fs = require('fs');
 
 let fromFile = './base.html';
 
-let toFileHead = './Conditional-Rendering/';
+let toFileHead = './List-and-Keys/';
 
-let fileName = 'demo03.html';
+let fileName = 'demo01.html';
 
 let newFile = toFileHead + fileName;
 
