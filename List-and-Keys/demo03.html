@@ -13,7 +13,7 @@
 <body>
 	<div id="app"></div>
 	<script type="text/babel">
-		function 2(props) {
+		function Blog(props) {
 			const sidebar = (
 				<ul>
 					{props.posts.map(post => 
@@ -25,21 +25,19 @@
 			);
 
 			const content = props.posts.map(post => 
-				<div key={post.id}
+				<div key={post.id}>
 					<h3>{post.title}</h3>
 					<p>{post.content}</p>
 				</div>
-				}
 			);
 
 			return (
 				<div>
 					{sidebar}
-				<hr />
-				{content}
+					<hr />
+					{content}
 				</div>
-			)
-
+			);
 		}
 
 		const posts = [
@@ -47,7 +45,7 @@
 		  {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 		];
 		ReactDOM.render(
-			<2 posts={posts} />,
+			<Blog posts={posts} />,
 			document.getElementById('app')
 		);
 
