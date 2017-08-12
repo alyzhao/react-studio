@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../lib/react.js"></script>
+	<script src="../lib/react-dom.js"></script>
+	<script src="../lib/browser.min.js"></script>
+</head>
+<style type="text/css">
+.clearfix{*zoom: 1;}
+.clearfix:before, .clearfix:after{display: table;line-height: 0;content: "";}
+.clearfix:after{clear: both;}
+p{margin: 5px 0;}
+
+.category-name{font-weight: bold;}
+
+.pro-item{width: 100%;}
+.pro-item > p{width: 50%;float: left;}
+.pro-item > .pro-name.eye-catch{color: red;}
+
+.pro-table{width: 100%;}
+.protb-head span{display: inline-block;width: 50%;font-weight: bold;}
+</style>
+<body>
+	<div id="app"></div>
+	<script type="text/babel">
+
+		const data = [
+			{category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
+			{category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
+			{category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
+			{category: "Electronics", price: "$99.99", stocked: true, name: "iPod Touch"},
+			{category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
+			{category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
+		];
+
+		let searchData = [];
+
+
+
+		data.forEach((item, index) => {
+			let dataItem = item;
+			let cateIndex = searchData.findIndex(item => {
+				return item.categoryName == dataItem.category
+			});
+
+			let newProItem = {price: dataItem.price, stocked: dataItem.stocked, name: dataItem.name};
+			if (cateIndex >= 0) {
+				searchData[cateIndex].proList.push(newProItem);
+			} else {
+				let newItem = {
+					categoryName: dataItem.category,
+					proList: [newProItem]
+				}
+				searchData.push(newItem);
+			}
+
+		});
+		console.log(searchData);
+
+		function FilterProTable(props) {
+
+		}
+
+		class ProTable extends React.Component{
+			constructor(props) {
+				super(props);
+				this.state = {
+					searchData: searchData
+				}
+			}
+
+
+			render() {
+				let searchData = this.state.searchData; 
+
+				return (
+					<div className="pro-table">
+						<p className="protb-head"><span>Name</span><span>Price</span></p>
+						{
+							searchData.map((cate, index) => 
+								<ProCate searchItem={cate} />
+							)
+						}
+					</div>
+				);
+			}
+
+		}
+
+		function ProCate(props) {
+			let searchItem = props.searchItem;
+			return(
+				<div> 
+					<CategoryRow categoryName={searchItem.categoryName} />
+					{searchItem.proList.map(item => 
+						<ProRow proItem={item} />
+					)}					
+				</div>
+			);
+		}
+
+		function ProRow(props) {
+			let proItem = props.proItem;
+			return (
+				<div className="pro-item clearfix">
+					<p className={proItem.stocked ? "pro-name" : "pro-name eye-catch"}>{proItem.name}</p>
+					<p className="pro-price">{proItem.price}</p>
+				</div>
+			);
+		}
+
+		function CategoryRow(props) {
+			let categoryName = props.categoryName;
+			return (
+				<p className="category-name">{categoryName}</p>
+			)
+
+		}
+
+		ReactDOM.render(
+			<ProTable />,
+			document.getElementById('app')
+		);
+
+	</script>
+</body>
+</html>
