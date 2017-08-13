@@ -21,6 +21,11 @@ p{margin: 5px 0;}
 
 .pro-table{width: 100%;}
 .protb-head span{display: inline-block;width: 50%;font-weight: bold;}
+
+.search-bar{margin-bottom: 20px;}
+input[name="searchKey"]{line-height: 20px;padding: 3px 5px;}
+
+.filter-pro{width: 300px;margin: 0 auto;}
 </style>
 <body>
 	<div id="app"></div>
@@ -34,47 +39,102 @@ p{margin: 5px 0;}
 			{category: "Electronics", price: "$399.99", stocked: false, name: "iPhone 5"},
 			{category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 		];
-
-		let searchData = [];
-
-
-
-		data.forEach((item, index) => {
-			let dataItem = item;
-			let cateIndex = searchData.findIndex(item => {
-				return item.categoryName == dataItem.category
-			});
-
-			let newProItem = {price: dataItem.price, stocked: dataItem.stocked, name: dataItem.name};
-			if (cateIndex >= 0) {
-				searchData[cateIndex].proList.push(newProItem);
-			} else {
-				let newItem = {
-					categoryName: dataItem.category,
-					proList: [newProItem]
-				}
-				searchData.push(newItem);
-			}
-
-		});
-		console.log(searchData);
-
-		function FilterProTable(props) {
-
-		}
-
-		class ProTable extends React.Component{
+		
+		class FilterProTable extends React.Component {
 			constructor(props) {
 				super(props);
 				this.state = {
-					searchData: searchData
+					searchKey: '',
+					onlyStock: false
 				}
+				this.handleKeyChange = this.handleKeyChange.bind(this);
+				this.handleStockChange = this.handleStockChange.bind(this);				
 			}
 
+			handleKeyChange(value) {
+				this.setState({
+					searchKey: value
+				});
+			}
+
+			handleStockChange(value) {
+				this.setState({
+					onlyStock: value
+				})
+			}
 
 			render() {
-				let searchData = this.state.searchData; 
+				let searchData = [];
+				data.forEach((item, index) => {
+					let dataItem = item;
+					if (dataItem.name.toLowerCase().indexOf(this.state.searchKey.toLowerCase()) >= 0 && (!this.state.onlyStock || dataItem.stocked)) {
+						let cateIndex = searchData.findIndex(item => {
+							return item.categoryName == dataItem.category
+						});
 
+						let newProItem = {price: dataItem.price, stocked: dataItem.stocked, name: dataItem.name};
+						if (cateIndex >= 0) {
+							searchData[cateIndex].proList.push(newProItem);
+						} else {
+							let newItem = {
+								categoryName: dataItem.category,
+								proList: [newProItem]
+							}
+							searchData.push(newItem);
+						}
+
+					}
+				});
+				return (
+					<div className="filter-pro">
+						<SearchBar searchKey={this.state.searchKey} onlyStock={this.state.onlyStock} handleKeyChange={this.handleKeyChange} handleStockChange={this.handleStockChange} />
+						<ProTable searchData={searchData} />
+					</div>
+				)
+			}
+		}
+
+		// 搜索框
+		class SearchBar extends React.Component {
+			constructor(props) {
+				super(props);
+				// this.state = {
+				// 	onlyStock: false,
+				// 	searchKey: ''
+				// }
+				this.searchKeyChange = this.searchKeyChange.bind(this);
+				this.onlyStockChange = this.onlyStockChange.bind(this);				
+			}
+
+			searchKeyChange(event) {
+				this.props.handleKeyChange(event.target.value);
+				// const target = event.target;
+				// const value = target.type == 'checkbox' ? target.checked : target.value;
+				// const name = target.name;
+
+				// this.setState({
+				// 	[name]: value
+				// });
+			}
+
+			onlyStockChange(event) {
+				this.props.handleStockChange(event.target.checked);
+			}
+
+			render() {
+				return(
+					<div className="search-bar">
+						<div><input name="searchKey" type="text" value={this.props.searchKey} placeholder="Search..." onChange={this.searchKeyChange} /></div>
+						<div><input name="onlyStock" type="checkbox" checked={this.props.onlyStock} onChange={this.onlyStockChange} />Only show product in stock</div>
+					</div>
+				);
+			}	
+		}
+
+		// 产品框
+		class ProTable extends React.Component{
+			render() {
+				let searchData = this.props.searchData; 
 				return (
 					<div className="pro-table">
 						<p className="protb-head"><span>Name</span><span>Price</span></p>
@@ -88,7 +148,7 @@ p{margin: 5px 0;}
 			}
 
 		}
-
+		// 分类复合组件
 		function ProCate(props) {
 			let searchItem = props.searchItem;
 			return(
@@ -100,7 +160,7 @@ p{margin: 5px 0;}
 				</div>
 			);
 		}
-
+		// 产品组件
 		function ProRow(props) {
 			let proItem = props.proItem;
 			return (
@@ -110,7 +170,7 @@ p{margin: 5px 0;}
 				</div>
 			);
 		}
-
+		// 分类组件
 		function CategoryRow(props) {
 			let categoryName = props.categoryName;
 			return (
@@ -120,7 +180,7 @@ p{margin: 5px 0;}
 		}
 
 		ReactDOM.render(
-			<ProTable />,
+			<FilterProTable />,
 			document.getElementById('app')
 		);
 
