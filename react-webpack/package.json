@@ -1,0 +1,20 @@
+{
+  "name": "react-webpack",
+  "version": "1.0.0",
+  "description": "test webpack and react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
+  },
+  "keywords": [
+    "react",
+    "webpack"
+  ],
+  "author": "captainzhao",
+  "license": "MIT",
+  "dependencies": {
+    "webpack": "^3.5.5"
+  }
+}

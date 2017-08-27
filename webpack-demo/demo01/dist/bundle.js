@@ -101,6 +101,8 @@ function component() {
 	var myIcon = new Image();
 	myIcon.src = __WEBPACK_IMPORTED_MODULE_2__favicon_png___default.a;
 
+	console.log(__WEBPACK_IMPORTED_MODULE_2__favicon_png___default.a);
+
 	var icon = document.createElement('i');
 	icon.classList.add('iconfont', 'icon-Love');
 

@@ -12,6 +12,8 @@ function component() {
 	var myIcon = new Image();
 	myIcon.src = Icon;
 
+	console.log(Icon);
+
 	var icon = document.createElement('i');
 	icon.classList.add('iconfont', 'icon-Love');
 
