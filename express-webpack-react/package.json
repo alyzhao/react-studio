@@ -1,0 +1,24 @@
+{
+  "name": "express-webpack-react",
+  "version": "1.0.0",
+  "description": "useing express as server, webpack packaging, react build html",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gegehehehe/react-studio.git"
+  },
+  "keywords": [
+    "express",
+    "react",
+    "webpack"
+  ],
+  "author": "captainzhao",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
