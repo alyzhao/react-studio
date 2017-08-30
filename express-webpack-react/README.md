@@ -9,9 +9,16 @@
 	  | +-- build
 	  | `-- dist
 	  +-- public
+	  +-- routes
+	  | `-- route.js
 	  +-- controllers
-	  + app.js
-- 构建 express 服务器, 入口文件 app.js
+	  +-- app.js
+	  +-- .babelrc
+	  +-- packaage.json
+	  `-- webpack.config.js
+- 构建 express 服务器, 入口文件 app.js, 使用 ejs 模板引擎, 
+	- 安装 ejs
+	- 安装 serve-static
 - 安装 webpack 
 	- 安装 webpack 插件
 		- style-loader 
@@ -27,3 +34,5 @@
 - 安装 babel, npm install --save-dev babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-0
 	- 配置 .babelrc 
 - 编码 app.js
+- 编写前端 react 页面
+

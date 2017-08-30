@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		react: path.join(__dirname, './views/index/index.js')
+		index: path.join(__dirname, './views/app/index/index.js')
 	},
 	devtool: 'inline-source-map',   // 跟踪错误堆栈
 	module: {
@@ -31,8 +31,8 @@ module.exports = {
 		]
 	},
 	output: {
-		path: path.join(__dirname, './views/build/index/'),
+		path: path.join(__dirname, './public/'),
 		filename: "[name].bundle.js",
-		publicPath: '/dist/'
+		publicPath: '/'
 	}
 }

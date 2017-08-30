@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,9 +20,11 @@
   "author": "captainzhao",
   "license": "MIT",
   "dependencies": {
+    "ejs": "^2.5.7",
     "express": "^4.15.4",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "serve-static": "^1.12.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
