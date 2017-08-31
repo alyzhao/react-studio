@@ -21,7 +21,7 @@ const MyComponents = {
 		render() {
 			return (
 				<h1>
-					<input onChange={this.handleChange} value={this.state.value} placeholder="input some words" />
+					<input onChange={this.handleChange} value={this.state.value} placeholder="input some words111" />
 				</h1>
 			);
 		}

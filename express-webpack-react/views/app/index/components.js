@@ -1,5 +1,4 @@
 import React from 'react';
-
 class IndexComponent extends React.Component {
 	constructor(props) {
 		super(props);
@@ -25,7 +24,7 @@ class IndexComponent extends React.Component {
 	render() {
 		return (
 			<div>
-				<h1>欢迎<span className="username">{this.state.user.name}({this.props.userage})</span><a href="http://www.baidu.com" onClick={this.handleClick}>切换</a></h1>
+				<h1>欢迎, <span className="username">{this.state.user.name}({this.props.userage})</span><a href="http://www.baidu.com" onClick={this.handleClick}>切换</a></h1>
 			</div>
 		);
 	}
