@@ -1,11 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
 
-const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
+const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true'; 	// 这是使用hot-middleware必须配置的项目
 
 module.exports = {
 	entry: {
-		index: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './views/app/index/index.js')]
+		index: ['react-hot-loader/patch', hotMiddlewareScript, path.join(__dirname, './app/index/main.js')]
 	},
 	devtool: 'inline-source-map',   // 跟踪错误堆栈
 	module: {
@@ -37,8 +37,8 @@ module.exports = {
 		new webpack.HotModuleReplacementPlugin()
 	],
 	output: {
-		path: path.join(__dirname, './public/'),
+		path: path.join(__dirname, './build/'),
 		filename: "[name].bundle.js", 
-		publicPath: '/public/'		// 测试只是打包的文件, 在 webpack-dev-middleware 中的前缀
+		publicPath: '/build/'		// 测试只是打包的文件, 在 webpack-dev-middleware 中的前缀, 如果吧devtool 改成 'source-map', 这个需要改成 url 的形式
 	}
 }

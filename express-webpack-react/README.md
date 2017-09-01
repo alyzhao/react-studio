@@ -28,7 +28,8 @@
 - 构建 express 服务器, 入口文件 app.js, 使用 ejs 模板引擎, 
 	- 安装 ejs
 	- 安装 serve-static
-	- 安装 morgan , 用来监听请求
+	- 安装 morgan, 用来监听请求
+	- 安装 nodemon, 监听文件修改, 自动重启服务
 - 安装 webpack , 打包会把所有用到的静态资源放到一个入口文件`[name].bundle.js`, 所以用`react`开发应把`views`分离出来
 	- 安装 webpack 插件
 		- style-loader 
@@ -45,6 +46,8 @@
 	- 配置 .babelrc 
 - 编码 app.js
 - 编写前端 react 页面
+> 2017.9.1 修改了目录结构, 使用 nodemon 监听文件修改, 重启服务, 重新配置 webpack
+
 
 ## 问题
 
