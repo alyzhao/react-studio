@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
+    "start": "nodemon app.js",
     "build": "webpack"
   },
   "repository": {
@@ -39,6 +39,7 @@
     "file-loader": "^0.11.2",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "nodemon": "^1.11.0",
     "react-hot-loader": "^3.0.0-beta.6",
     "style-loader": "^0.18.2"
   }

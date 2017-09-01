@@ -9,23 +9,17 @@ import { test } from './test';
  
 const render = function(Component) {
 	ReactDOM.render(
-		<IndexComponent userage="22" />,
+		<AppContainer>
+			<Component userage="22" />
+		</AppContainer>,
 		document.getElementById('app')
 	)
 };
 
-test();
 render(IndexComponent);
 
 if(module.hot) {
 	module.hot.accept('./components', () => {
-		console.log('component has changed!');
-		console.log(IndexComponent);
 		render(IndexComponent);
 	});
-	module.hot.accept('./test', () => {
-		console.log('test has changed')
-		test();
-	});
-
 }
