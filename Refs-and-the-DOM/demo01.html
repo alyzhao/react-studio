@@ -13,8 +13,29 @@
 <body>
 	<div id="app"></div>
 	<script type="text/babel">
+		class CustomTextInput extends React.Component {
+			constructor(props) {
+				super(props);
+				this.focus = this.focus.bind(this);
+			}
+
+			focus() {
+				this.textInput.focus()
+			}
+
+			render() {
+				return (
+					<div>
+						<input type="text" ref={ (input) => { this.textInput = input; } } />
+						<input type="button" value="Focus me" onClick={this.focus} />
+					</div>
+				);
+			}
+		}
+
+
 		ReactDOM.render(
-			<Clock />,
+			<CustomTextInput />,
 			document.getElementById('app')
 		);
 	</script>

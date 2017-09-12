@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="../lib/react.js"></script>
+	<script src="../lib/react-dom.js"></script>
+	<script src="../lib/browser.min.js"></script>
+</head>
+<style type="text/css">
+
+</style>
+<body>
+	<div id="app"></div>
+	<script type="text/babel">
+		// 向父组件暴露节点
+		function CustomTextInput(props) {
+			return (
+				<div>
+					<input ref={props.inputRef} />
+				</div>
+			);
+		}
+
+		class Parent extends React.Component {
+			constructor(props) {
+				super(props);
+				this.focus = this.focus.bind(this);
+			}
+
+			focus() {
+				this.textInput.focus()
+			}
+
+			render() {
+				return (
+					<div>
+						<CustomTextInput inputRef={(el) => { this.textInput = el }} />
+						<input type="button" value="Focus me" onClick={this.focus} />
+					</div>
+				);
+			}
+		}
+
+		ReactDOM.render(
+			<Parent />,
+			document.getElementById('app')
+		);
+	</script>
+</body>
+</html>
