@@ -13,7 +13,7 @@ const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 
 // 启动配置
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 const app = express();
 
 // webpack
@@ -50,6 +50,7 @@ require('./routes/route')(app); 	// 加载路由
 app.use(serveStatic(path.join(__dirname, './dist'), {
 	'cacheControl': false 	// 这是个可选 options
 }));
+
 
 app.listen(port, function() {
 	console.log('app started on port ' + port);
