@@ -2,7 +2,7 @@ const fs = require('fs');
 
 let fromFile = './base.html';
 
-let toFileHead = './Jsx-In-Depth/';
+let toFileHead = './Refs-and-the-DOM/';
 
 let fileName = 'demo01.html';
 
