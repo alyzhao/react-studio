@@ -23,7 +23,6 @@ var server = http.createServer(function (request, response) {
         console.log("newFilePath:" + filepath);
     }
 
-
     // 获取文件状态:
     fs.stat(filepath, function (err, stats) {
         if (!err && stats.isFile()) {
