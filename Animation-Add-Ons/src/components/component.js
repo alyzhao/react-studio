@@ -42,10 +42,61 @@ class TodoList extends React.Component {
   }
 }
 
+class MobileNavbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      onOpen: false
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  // componentDidMount() {
+  //  console.log(this.div_bar);
+  //  let that = this;
+  //  // setTimeout(function() {
+  //    that.div_bar.style.height = '117px';
+      
+  //  // }, 300);
+  // }
+
+  // componentWillUnmount() {
+
+  // }
+
+  handleClick() {
+    this.setState(prevState => ({
+      onOpen: !prevState.onOpen
+    }));
+  }
+
+  render() {
+    return (
+      <div className="mb-navbar">
+          <div onClick={this.handleClick}>点击</div>
+          <CSSTransitionGroup transitionName="mbnavbar" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
+          { this.state.onOpen ? 
+            <ul>
+              <li><i className="fa fa-home"></i><a href="/">首页</a></li>
+              <li><i className="fa fa-delicious"></i><a href="/archives/">归档</a></li>
+              <li><i className="fa fa-coffee"></i><a href="/about/">关于</a></li>
+            </ul> 
+            : 
+            '' 
+          }
+            
+          </CSSTransitionGroup>
+      </div>
+    );
+  }
+}
 
 
-export { TodoList };
+
+
+export { TodoList, MobileNavbar };
 
 
 
 
+ 

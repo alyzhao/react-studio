@@ -15,3 +15,53 @@
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+/*移动端导航的过渡效果*/ 
+
+ //->LESS代码
+.transition(@property: all; @duration: .2s; @function: ease; @delay: 0s;) {
+	-webkit-transition: @property @duration @function @delay;
+	-moz-transition: @property @duration @function @delay;
+	-ms-transition: @property @duration @function @delay;
+	-o-transition: @property @duration @function @delay;
+	transition: @property @duration @function @delay;
+}
+
+.mb-navbar {
+	.transition;
+	position: absolute;
+	background-color: #E2E2E2;
+	width: 100%;
+	top: 65px;
+	ul li {
+		padding: 10px 18px;
+		&:hover {
+			background-color: #eee;
+		}
+		.fa {
+			font-size: 14px;
+			margin-right: 8px;
+		}
+		a {
+			color: #565a5f;
+		}
+	}
+}
+
+.mbnavbar-enter {
+  height: 0;
+}
+
+.mbnavbar-enter.mbnavbar-enter-active {
+  transition: height 500ms ease-in;
+  height: 117px;
+}
+
+.mbnavbar-leave {
+  height: 117px;
+}
+
+.mbnavbar-leave.mbnavbar-leave-active {
+  transition: height 500ms ease-in;
+  height: 0;
+}

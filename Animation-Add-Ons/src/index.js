@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { TodoList } from './components/component.js'
+import { TodoList, MobileNavbar } from './components/component.js'
 import './style.less';
 
 
 ReactDom.render(
-	<TodoList />, document.getElementsByTagName('body')[0]
+	<MobileNavbar />, document.getElementsByTagName('body')[0]
 )
