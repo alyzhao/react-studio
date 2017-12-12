@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	entry: './src/index.js',
+	entry: './src/main.js',
 	devtool: 'inline-source-map',
 	module: {
 		loaders: [
@@ -13,11 +13,12 @@ module.exports = {
 		]
 	},
 	devServer: {
-		contentBase: '/dist',
+		contentBase: './',
 		hot: true	
 	},
 	output: {
 		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'dist')
+		publicPath: '/',
+		path: path.resolve(__dirname, './dist')
 	}
 }
