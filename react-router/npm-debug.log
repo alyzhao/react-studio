@@ -1,23 +1,96 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'run', 'dev' ]
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'react-router' ]
 2 info using npm@3.10.10
 3 info using node@v6.11.4
-4 verbose stack Error: missing script: dev
-4 verbose stack     at run (/usr/local/lib/node_modules/npm/lib/run-script.js:151:19)
-4 verbose stack     at /usr/local/lib/node_modules/npm/lib/run-script.js:61:5
-4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:356:5
-4 verbose stack     at checkBinReferences_ (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:320:45)
-4 verbose stack     at final (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:354:3)
-4 verbose stack     at then (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:124:5)
-4 verbose stack     at ReadFileContext.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:295:20)
-4 verbose stack     at ReadFileContext.callback (/usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16)
-4 verbose stack     at FSReqWrap.readFileAfterOpen [as oncomplete] (fs.js:367:13)
-5 verbose cwd /Users/zenzet/WebStudio/GitRepositories/react-studio/react-router
-6 error Darwin 17.2.0
-7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "run" "dev"
-8 error node v6.11.4
-9 error npm  v3.10.10
-10 error missing script: dev
-11 error If you need help, you may report this error at:
-11 error     <https://github.com/npm/npm/issues>
-12 verbose exit [ 1, true ]
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData react-router
+8 silly fetchNamedPackageData react-router
+9 silly mapToRegistry name react-router
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'react-router',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'react-router',
+12 silly mapToRegistry   name: 'react-router',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/react-router
+14 verbose request uri https://registry.npmjs.org/react-router
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 18:14:44
+17 verbose request id f28b2c4fd5e81210
+18 verbose etag "5a2ae31b-4451c"
+19 verbose lastModified Fri, 8 Dec 2017 19:08:11 GMT
+20 http request GET https://registry.npmjs.org/react-router
+21 http 304 https://registry.npmjs.org/react-router
+22 verbose headers { date: 'Tue, 12 Dec 2017 10:14:46 GMT',
+22 verbose headers   via: '1.1 varnish',
+22 verbose headers   'cache-control': 'max-age=300',
+22 verbose headers   etag: '"5a2ae31b-4451c"',
+22 verbose headers   age: '6051',
+22 verbose headers   connection: 'keep-alive',
+22 verbose headers   'x-served-by': 'cache-nrt6135-NRT',
+22 verbose headers   'x-cache': 'HIT',
+22 verbose headers   'x-cache-hits': '2',
+22 verbose headers   'x-timer': 'S1513073686.032370,VS0,VE0',
+22 verbose headers   vary: 'Accept-Encoding, Accept' }
+23 silly get cb [ 304,
+23 silly get   { date: 'Tue, 12 Dec 2017 10:14:46 GMT',
+23 silly get     via: '1.1 varnish',
+23 silly get     'cache-control': 'max-age=300',
+23 silly get     etag: '"5a2ae31b-4451c"',
+23 silly get     age: '6051',
+23 silly get     connection: 'keep-alive',
+23 silly get     'x-served-by': 'cache-nrt6135-NRT',
+23 silly get     'x-cache': 'HIT',
+23 silly get     'x-cache-hits': '2',
+23 silly get     'x-timer': 'S1513073686.032370,VS0,VE0',
+23 silly get     vary: 'Accept-Encoding, Accept' } ]
+24 verbose etag https://registry.npmjs.org/react-router from cache
+25 verbose get saving react-router to /Users/zenzet/.npm/registry.npmjs.org/react-router/.cache.json
+26 verbose correctMkdir /Users/zenzet/.npm correctMkdir not in flight; initializing
+27 silly install normalizeTree
+28 silly loadCurrentTree Finishing
+29 silly loadIdealTree Starting
+30 silly install loadIdealTree
+31 silly cloneCurrentTree Starting
+32 silly install cloneCurrentTreeToIdealTree
+33 silly cloneCurrentTree Finishing
+34 silly loadShrinkwrap Starting
+35 silly install loadShrinkwrap
+36 silly loadShrinkwrap Finishing
+37 silly loadAllDepsIntoIdealTree Starting
+38 silly install loadAllDepsIntoIdealTree
+39 silly rollbackFailedOptional Starting
+40 silly rollbackFailedOptional Finishing
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: Refusing to install react-router as a dependency of itself
+43 verbose stack     at checkSelf (/usr/local/lib/node_modules/npm/lib/install/validate-args.js:53:14)
+43 verbose stack     at Array.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/slide/lib/bind-actor.js:15:8)
+43 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
+43 verbose stack     at chain (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:20:5)
+43 verbose stack     at /usr/local/lib/node_modules/npm/lib/install/validate-args.js:16:5
+43 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:35
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:52:11
+43 verbose stack     at Array.forEach (native)
+43 verbose stack     at asyncMap (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:51:8)
+44 verbose cwd /Users/zenzet/WebStudio/GitRepositories/react-studio/react-router
+45 error Darwin 17.2.0
+46 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "--save" "react-router"
+47 error node v6.11.4
+48 error npm  v3.10.10
+49 error code ENOSELF
+50 error Refusing to install react-router as a dependency of itself
+51 error If you need help, you may report this error at:
+51 error     <https://github.com/npm/npm/issues>
+52 verbose exit [ 1, true ]

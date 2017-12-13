@@ -1,7 +1,12 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-	entry: './src/main.js',
+	entry: [
+		'react-hot-loader/patch',
+		'webpack/hot/only-dev-server',
+		path.join(__dirname, './src/main.js')
+	],
 	devtool: 'inline-source-map',
 	module: {
 		loaders: [
@@ -16,6 +21,9 @@ module.exports = {
 		contentBase: './',
 		hot: true	
 	},
+	plugins: [
+		new webpack.HotModuleReplacementPlugin()
+	],
 	output: {
 		filename: 'bundle.js',
 		publicPath: '/',

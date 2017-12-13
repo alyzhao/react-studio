@@ -1,40 +1,72 @@
-import React from 'react';
-import { Link, Route, Switch } from 'react-router-dom';
+import React from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 
-function Home(props) {
-	<div>
-		<h2>Home</h2>
-	</div>
-}
+const BasicExample = () => (
+  <Router>
+    <div>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/topics">Topics</Link></li>
+      </ul>
 
-function Category(props) {
-	<div>
-		<h2>Category</h2>
-	</div>
-}
+      <hr/>
 
-function Products(props) {
-	<div>
-		<h2>Products</h2>
-	</div>
-}
+      <Route exact path="/" component={Home}/>
+      <Route path="/about" component={About}/>
+      <Route path="/topics" component={Topics}/>
+    </div>
+  </Router>
+)
 
-class App extends React.component {
-	render() {
-		return (
-			<div>
-				<nav className="navbar navbar-light">
-					<ul className="nav navbar-nav">
-						<li><Link to="/">Homes</Link></li>
-			            <li><Link to="/category">Category</Link></li>
-			            <li><Link to="/products">Products</Link></li>
-					</ul>
-				</nav>
-				<Route path="/" component={Home}/>
-				<Route path="/category" component={Category}/>
-				<Route path="/products" component={Products}/>
-			</div>
-		);
-	}
-}
+const Home = () => (
+  <div>
+    <h2>Home</h2>
+  </div>
+)
 
+const About = () => (
+  <div>
+    <h2>About</h2>
+  </div>
+)
+
+const Topics = ({ match }) => (
+  <div>
+    <h2>Topics</h2>
+    <ul>
+      <li>
+        <Link to={`${match.url}/rendering`}>
+          Rendering with React
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/components`}>
+          Components
+        </Link>
+      </li>
+      <li>
+        <Link to={`${match.url}/props-v-state`}>
+          Props v. State
+        </Link>
+      </li>
+    </ul>
+
+    <Route path={`${match.url}/:topicId`} component={Topic}/>
+    <Route exact path={match.url} render={() => (
+      <h3>Please select a topic.</h3>
+    )}/>
+  </div>
+)
+
+const Topic = ({ match }) => (
+  <div>
+    <h3>{match.params.topicId}</h3>
+  </div>
+)
+
+export default BasicExample

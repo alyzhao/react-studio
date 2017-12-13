@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import BasicExample from './App';
 
-import { BrowserRouter } from 'react-router-dom';
+import ParamsExample from './ParamsExample';
+
+import AuthExample from './AuthExample';
 
 ReactDOM.render(
-	<BrowserRouter>
-		<App />
-	</BrowserRouter>, 
+	<AuthExample />, 
 	document.getElementById('app')
 );
