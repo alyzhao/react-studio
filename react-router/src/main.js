@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import BasicExample from './App';
+import BasicExample from './demo01.js';
 
 import ParamsExample from './ParamsExample';
 
