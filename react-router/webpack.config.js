@@ -7,7 +7,7 @@ module.exports = {
 		'webpack/hot/only-dev-server',
 		path.join(__dirname, './src/main.js')
 	],
-	devtool: 'inline-source-map',
+	devtool: 'source-map',
 	module: {
 		loaders: [
 			{
