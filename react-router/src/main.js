@@ -6,7 +6,9 @@ import ParamsExample from './ParamsExample';
 
 import AuthExample from './AuthExample';
 
+import CustomLinkExample from './CustomLinkExample';
+
 ReactDOM.render(
-	<AuthExample />, 
+	<CustomLinkExample />, 
 	document.getElementById('app')
 );

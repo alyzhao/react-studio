@@ -28,8 +28,25 @@
 
 2. Redirect: Rendering a <Redirect> will navigate to a new location
 	
+3. Switch: 路由列表只匹配一个路由, react 默认是包容性路由, 使用 Switch 之后成为排他性路由
 
 
 ### 记录
 
 1. `<Route exact path="/" component={Home}/>` exact 执行严格匹配 否则的话 '/about' 路由也会匹配到 '/' 
+
+2. props.match 被 <Route> 渲染的任何组件都可以访问, 如果没有用 <Route> 直接渲染, 可以使用 withRouter 高阶组件
+
+3. match.path 是路由中的值, match.url 是浏览器中的地址
+
+4. webpack-dev-server 中刷新 react-router 不能显示, webpack.config.js 配置 devServer 选项
+```
+devServer: {
+	historyApiFallback:{
+        index:'/index.html'
+    },
+	contentBase: './',
+	hot: true	
+}
+```
+	
