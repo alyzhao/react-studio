@@ -8,7 +8,9 @@ import AuthExample from './AuthExample';
 
 import CustomLinkExample from './CustomLinkExample';
 
+import PreventingTransitionsExample from './PreventingTransitionsExample';
+
 ReactDOM.render(
-	<CustomLinkExample />, 
+	<PreventingTransitionsExample />, 
 	document.getElementById('app')
 );
