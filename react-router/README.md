@@ -29,6 +29,11 @@
 2. Redirect: Rendering a <Redirect> will navigate to a new location
 	
 3. Switch: 路由列表只匹配一个路由, react 默认是包容性路由, 使用 Switch 之后成为排他性路由
+	- 子路由应该放在父路由的上方, 这样才能渲染出自路由否则父路由会覆盖掉子路由
+
+4. Prompt: prompt the user before navigating away from a page
+	- when: 为 true 时表示阻止路由跳转
+	- message: string || function 
 
 
 ### 记录

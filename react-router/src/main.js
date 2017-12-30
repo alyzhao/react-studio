@@ -10,7 +10,9 @@ import CustomLinkExample from './CustomLinkExample';
 
 import PreventingTransitionsExample from './PreventingTransitionsExample';
 
+import NotMatchExample from './NotMatchExample';
+
 ReactDOM.render(
-	<PreventingTransitionsExample />, 
+	<NotMatchExample />, 
 	document.getElementById('app')
 );
