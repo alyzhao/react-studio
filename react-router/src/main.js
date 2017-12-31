@@ -12,7 +12,9 @@ import PreventingTransitionsExample from './PreventingTransitionsExample';
 
 import NotMatchExample from './NotMatchExample';
 
+import RecursiveExample from './RecursiveExample';
+
 ReactDOM.render(
-	<NotMatchExample />, 
+	<RecursiveExample />, 
 	document.getElementById('app')
 );
