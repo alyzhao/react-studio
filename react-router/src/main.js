@@ -14,7 +14,11 @@ import NotMatchExample from './NotMatchExample';
 
 import RecursiveExample from './RecursiveExample';
 
+import SidebarExample from './SidebarExample';
+
+import AnimationExample from './AnimationExample';
+
 ReactDOM.render(
-	<RecursiveExample />, 
+	<AnimationExample />, 
 	document.getElementById('app')
 );

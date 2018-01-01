@@ -14,7 +14,14 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/
-			}
+			},
+			{
+				test: /\.(css|less)$/,
+				use: [
+					'style-loader',
+					'css-loader'
+				]
+			},
 		]
 	},
 	devServer: {
