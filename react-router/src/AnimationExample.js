@@ -6,7 +6,7 @@ import {
 	Link,
 	Redirect
 } from 'react-router-dom';
-// import './animation.css';
+import './animation.css';
 
 const styles = {};
 styles.fill = {
