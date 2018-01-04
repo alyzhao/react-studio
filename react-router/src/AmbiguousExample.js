@@ -15,12 +15,12 @@ const AmbiguousExample = () => (
 				<li><Link to="/kim">Kim (dynamic)</Link></li>
 				<li><Link to="/chris">Chris (dynamic)</Link></li>
 			</ul>
+			<Switch>
+				<Route path="/about" component={About}/>
+				<Route path="/company" component={Company}/>
+				<Route path="/:user" component={User}/>
+			</Switch>
 		</div>
-		<Switch>
-			<Route path="/about" component={About}/>
-			<Route path="/company" component={Company}/>
-			<Route path="/:user" component={User}/>
-		</Switch>
 	</Router>
 )
 
