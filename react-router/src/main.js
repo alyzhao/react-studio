@@ -18,7 +18,9 @@ import SidebarExample from './SidebarExample';
 
 import AnimationExample from './AnimationExample';
 
+import AmbiguousExample from './AmbiguousExample';
+
 ReactDOM.render(
-	<AnimationExample />, 
+	<AmbiguousExample />, 
 	document.getElementById('app')
 );
