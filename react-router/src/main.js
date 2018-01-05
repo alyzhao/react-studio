@@ -18,7 +18,9 @@ import SidebarExample from './SidebarExample';
 
 import AnimationExample from './AnimationExample';
 
+import RouteConfigExample from './RouteConfigExample';
+
 ReactDOM.render(
-	<AnimationExample />, 
+	<RouteConfigExample />, 
 	document.getElementById('app')
 );
