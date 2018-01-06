@@ -20,7 +20,9 @@ import AnimationExample from './AnimationExample';
 
 import AmbiguousExample from './AmbiguousExample';
 
+import RouteConfigExample from './RouteConfigExample';
+
 ReactDOM.render(
-	<AmbiguousExample />, 
+	<RouteConfigExample />, 
 	document.getElementById('app')
 );
