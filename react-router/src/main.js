@@ -22,7 +22,9 @@ import AmbiguousExample from './AmbiguousExample';
 
 import RouteConfigExample from './RouteConfigExample';
 
+import ModalGallery from './ModalGallery';
+
 ReactDOM.render(
-	<RouteConfigExample />, 
+	<ModalGallery />, 
 	document.getElementById('app')
 );
