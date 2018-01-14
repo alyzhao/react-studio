@@ -9,8 +9,12 @@ import {
 class ModalSwitch extends React.Component {
 	previousLoaction = this.props.location;
 
+
+
 	componentWillUpdate(nextProps) {
+
 		const { location } = this.props;
+
 		if (nextProps.history.action !== 'POP' && (!location.state || !location.state.model)) {
 			this.previousLoaction = this.props.location
 		}
@@ -18,9 +22,14 @@ class ModalSwitch extends React.Component {
 
 	render() {
 		const { location } = this.props;
+
+		console.log(location);
+
+
+
 		const isModal = !!(
 			location.state &&
-			location.state.modal && 
+			location.state.modal &&
 			this.previousLoaction !== location
 		)
 		return (
@@ -35,6 +44,7 @@ class ModalSwitch extends React.Component {
 		)
 	}
 }
+
 
 const IMAGES = [
 	{id: 0, title: 'Dark Orchid', color: 'DarkOrchid'},

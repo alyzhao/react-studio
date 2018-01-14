@@ -48,11 +48,13 @@ const routes = [
 	}
 ]
 
-const RouteWithSubRoutes = (route) => (
-	<Route path={route.path} render={props => (
-		<route.component {...props} routes={route.routes}/>
-	)}/>
-)
+const RouteWithSubRoutes = (route) => {
+	console.log(route);
+	return <Route path={route.path} render={props => {
+		console.log(props);
+		return <route.component {...props} routes={route.routes}/>
+	}}/>
+}
 
 const RouteConfigExample = () => (
 	<Router>
@@ -62,9 +64,9 @@ const RouteConfigExample = () => (
 				<li><Link to="/sandwiches">Sandwiches</Link></li>
 			</ul>
 			{
-				routes.map((route, i) => (
-					<RouteWithSubRoutes key={i} {...route}/>
-				))
+				routes.map((route, i) => {
+					return <RouteWithSubRoutes key={i} {...route}/>
+				})
 			}
 		</div>
 	</Router>
