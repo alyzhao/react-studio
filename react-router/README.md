@@ -10,8 +10,7 @@
 	- Router 加在组件节点的最前端
 	- Route : render some UI when a location matches the route’s path
 	- Link 提供申明式无障碍的导航
-		- to 需要跳转的 pathname 或者 location
-	- 
+		- to 需要跳转的 pathname 或者 location 
 
 ### API
 
