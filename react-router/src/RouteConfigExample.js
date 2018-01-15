@@ -70,4 +70,5 @@ const RouteConfigExample = () => (
 	</Router>
 )
 
+
 export default RouteConfigExample;

@@ -17,7 +17,7 @@
 
 1. Route: render some UI when a location matches the route’s path
 	- render methods
-		- <Route component>
+		- <Route component> render 方法中的 props 是 Route 的所有属性 The render prop receives all the same route props as the component render prop.
 		- <Route render>
 		- <Route children>
 	- Route props
