@@ -16,9 +16,9 @@
 
 1. Route: render some UI when a location matches the route’s path
 	- render methods
-		- <Route component> render 方法中的 props 是 Route 的所有属性 The render prop receives all the same route props as the component render prop.
-		- <Route render>
-		- <Route children>
+		- `<Route component>` render 方法中的 props 是 Route 的所有属性 The render prop receives all the same route props as the component render prop.
+		- `<Route render>`
+		- `<Route children>`
 	- Route props
 		- match: 拥有三个属性: params, isExact: 路由全部匹配为 true , path, url
 		- location
@@ -26,7 +26,7 @@
 		- exact 严格匹配
 
 2. Redirect: Rendering a <Redirect> will navigate to a new location
-	
+
 3. Switch: 路由列表只匹配一个路由, react 默认是包容性路由, 使用 Switch 之后成为排他性路由
 	- 子路由应该放在父路由的上方, 这样才能渲染出自路由否则父路由会覆盖掉子路由
 
