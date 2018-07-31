@@ -14,6 +14,4 @@ class RichEditor extends React.Component {
   }
 }
 
-
-
 export default RichEditor;
