@@ -1,0 +1,6 @@
+{
+  "extends": ["tslint-react"],
+  "rules": {
+    /* 自己添加的特殊规则 */
+  }
+}

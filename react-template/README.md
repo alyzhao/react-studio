@@ -1,44 +1,122 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 创建项目
 
-## Available Scripts
+```bash
+npm init react-app project-name
+```
 
-In the project directory, you can run:
+### 定制化 webpack 配置
 
-### `yarn start`
+有多种方法, 这里采用 eject
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+yarn eject
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+这时候会输出以下文件:
 
-### `yarn test`
+- `/config` webpack 的配置文件
+- `/scripts` 构建和开发校本
+- `/src/react-app-env.d.ts` ts 申明文件
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 添加 less
 
-### `yarn build`
+```bash
+npm i less less-loader -D
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+在 `/config/webpack.config.js` 中加入 less 配置
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```js
+// 命名正则
+const lessRegex = /\.less$/; // 新增less配置
+const lessModuleRegex = /\.module\.less&/; // 新增less配置
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+// 在 webpack module.rules 中添加
+{
+  test: lessRegex,
+  exclude: lessModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 1,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+    },
+    'less-loader'
+  ),
+  sideEffects: true,
+},
+{
+  test: lessModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 1,
+      sourceMap: isEnvProduction && shouldUseSourceMap,
+    },
+    'less-loader',
+  ),
+},
+```
 
-### `yarn eject`
+在声名文件中添加
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+declare module '*.less' {
+  const classes: Record<string, string>;
+  export default classes;
+}
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 添加 tslint
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+在根目录添加 `.tslint.json` 文件, 并添加代码
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```json
+{
+  "extends": ["tslint-react"],
+  "rules": {
+    /* 自己添加的特殊规则 */
+  }
+}
+```
 
-## Learn More
+### 添加 stylelint
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+在根目录添加 `.stylelintrc` 文件, 并添加代码
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```json
+{
+  "extends": "stylelint-config-standard",
+  "rules": {
+    /* 自己添加的特殊规则 */
+  }
+}
+```
+
+### 添加 react-router
+
+浏览器中直接安装 `react-router-dom`
+
+```bash
+npm i react-router-dom -S
+npm i @types/react-router-dom -D
+```
+
+### 按需引入 antd
+
+```bash
+npm i antd -S
+npm i babel-plugin-import -D
+```
+
+在 `/config/webpack.config.js` 中编辑 module.rules.oneOf, `test: /\.(js|mjs|jsx|ts|tsx)$/` 的 options.plugins 中添加
+
+```js
+[
+  'import',  // 导入插件
+  {
+    libraryName: 'antd',  // 库名
+    style: 'css',  // 直接编译成行内样式
+  }
+]
+```
+
+### 引入 react-redux
